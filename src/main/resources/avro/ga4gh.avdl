@@ -1,0 +1,31 @@
+@namespace("org.ga4gh")
+protocol GA4GH {
+
+    // This is a STUB COPY of the real ga4gh.avdl from the Reads Task Team, to
+    // get the code here to compile. You probably want to use the real one,
+    // which is at <https://github.com/ga4gh/ReadTaskTeam/blob/master/src/main/r
+    // esources/avro/ga4gh.avdl>
+
+    enum GACigarOperation {
+        ALIGNMENT_MATCH,   // M
+        INSERT,            // I
+        DELETE,            // D
+        SKIP,              // N
+        CLIP_SOFT,         // S
+        CLIP_HARD,         // H
+        PAD,               // P
+        SEQUENCE_MATCH,    // =
+        SEQUENCE_MISMATCH  // X
+    }
+
+    record GACigarUnit {
+        GACigarOperation operation;
+        long operationLength;
+
+        // contigSequence is only used at mismatches (X) and deletions (D).
+        // Filling this field replaces the MD tag. If the relevant information
+        // is not available, leave this field as "null".
+        union { null, string } contigSequence = null;
+    }
+    
+}
