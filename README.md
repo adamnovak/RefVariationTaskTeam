@@ -14,6 +14,20 @@ The team will deliver:
 
 ## Build Status
 
+## Build Instructions
+
+To build with Maven, just do:
+
+```
+mvn compile
+```
+
+You can install the resulting .jar file with the generated Java classes with:
+
+```
+mvn install
+```
+
 ## How to contribute changes
 
 See the [CONTRIBUTING.md](CONTRIBUTING.md) documement.
