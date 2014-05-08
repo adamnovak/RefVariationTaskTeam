@@ -48,14 +48,14 @@ protocol ReferenceStructureTypes {
     // objects, which may belong to either Blocks or Adjacencies. An Edge is
     // directed; it has a left and a right endpoint.
     
-     enum Face {
+     enum GAFace {
         // Keeps track of whether we are talking about the left (5') or right
         // (3') side of a Position.
         LEFT,
         RIGHT
     }
     
-    record Side {
+    record GASide {
         // Identifies a side of a unique Position. Serves as a vertex in the
         // reference graph.
         
@@ -63,29 +63,29 @@ protocol ReferenceStructureTypes {
         long coordinate;
         
         // What face of that position are we talking about (left or right)? 
-        Face face; 
+        GAFace face; 
     }
     
-    record Edge {
+    record GAEdge {
         // Represents an edge in the reference graph. Can be part of a Block or
         // Adjacency.
 
         // The 5' Side of the Edge.
-        Side left;
+        GASide left;
 
         // The 3' Side of the Edge.
-        Side right;
+        GASide right;
 
     }
      
-    record Block {
+    record GABlock {
         // Represents several Positions with sequential IDs, connected only to
         // each other.
         
         // The Edge in the graph that represents this Block. This edge must
         // connect two Sides with opposite Faces, and the coordinate of the left
         // Side must be smaller than that of the right Side.
-        Edge edge;
+        GAEdge edge;
         
         // The bases that this Block represents. There must be exactly as many
         // characters in this string as there are consecutive integers between
@@ -94,11 +94,11 @@ protocol ReferenceStructureTypes {
         
     }
     
-    record Adjacency {
+    record GAAdjacency {
         // Represents an Adjacency between two sides of two Blocks.
 
         // The Edge in the graph that represents this Adjacency. This Edge must
         // connect two Sides which are themselves endpoints of Blocks.
-        Edge edge;
+        GAEdge edge;
     }
 }
