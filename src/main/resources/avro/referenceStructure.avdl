@@ -1,7 +1,8 @@
 @namespace("org.ga4gh")
 protocol ReferenceStructureTypes {
     
-    // The schemas here describe reference structures.
+    // The schemas here describe reference structures, as defined in 
+    // <http://arxiv.org/abs/1404.5010>.
     
     // A reference structure is a graph-based representation of a reference
     // genome and a set of common sequence and structural variants. Such a
